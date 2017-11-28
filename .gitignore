@@ -1,0 +1,5 @@
+# org-mode gens files with same name, lets ignore those
+README.*
+
+# but we want to include the base org-mode file
+!README.org

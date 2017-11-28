@@ -1,0 +1,51 @@
+#+AUTHOR: Alex Bierwagen
+#+TITLE: Carleton Placement Exam solution
+
+A solver for the Carleton placement exam
+
+* Usage
+  As per the expected behavior in the document
+
+  #+begin_src shell :eval no
+  $ python3 solution.py <url>
+  #+end_src
+
+** Options
+
+   - url :: the URL that contains the grid
+
+** Examples
+
+   #+begin_src shell :eval no
+  $ python3 solution.py http://cs.carleton.edu/faculty/dln/placement/grid.txt
+   #+end_src
+
+* Implementation notes
+  
+  what needs to be done:
+  1. ingest the file
+  2. put into two dimensional array
+  3. create functions to nicely access said array
+  4. find all the quad sequences
+     - vertical
+     - horizontal
+     - up diagonal
+     - down diagonal
+  5. calculate all the quad sequences and their products
+  6. place those in a map with the key being the product and the value a vector
+     of the numbers to calculate the product
+  7. find largest product and then print it out
+
+* Attempts
+
+** First attempt
+
+   uses a brute force method
+   #+include: "./attempt1.py" src python -n
+
+* License
+
+  Copyright © 2017 Alex Bierwagen
+
+  Distributed under the Do What the Fuck You Want Public License version 2.0 or
+  any later version.
