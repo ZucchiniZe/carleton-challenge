@@ -44,5 +44,5 @@ def test_overflow_vertical(grid):
     """test the overflow of the vertical"""
     last4 = [823, -385, -540, 44]
 
-    assert grid.vert(0, 7 ) == last4
+    assert grid.vert(0, 7) == last4
     assert grid.vert(0, 10) == last4

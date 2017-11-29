@@ -5,6 +5,18 @@ class Grid:
         self.height = len(self.grid)  # height is the number of rows (y)
         self.width = len(self.grid[1])  # width is the number of columns (x)
 
+    def __str__(self):
+        """a nice pretty print of the grid"""
+        return_val = f"height: {self.height}\nwidth: {self.width}\n\n"
+        for row in self.grid:
+            for value in row:
+                return_val += f"{value}\t"
+                # print with tab separator to easily print a nice grid in the
+                # terminal
+            return_val += '\n'
+
+        return return_val
+
     def _parse_grid(self, string):
         """parse the text grid into a 2d array if integers"""
         self.grid = []
@@ -17,27 +29,21 @@ class Grid:
 
         return [int(i) for i in items]
 
-    def __str__(self):
-        """a nice pretty print of the grid"""
-        return_val = f"height: {self.height}\nwidth: {self.width}\n\n"
-        for row in self.grid:
-            for value in row:
-                return_val += f"{value}\t"  # print with tab separator to easily print a nice grid in the terminal
-            return_val += '\n'
-
-        return return_val
-
     def horiz(self, x, y):
         # since we are looking at the horizontal axis (x axis) we need to check
         # which way we want to search for a quad sequence to make sure we don't
         # get an out of bounds error
 
-        if x + 3 >= self.width:  # first branch: if we are 3 or closer to the end then just return the last 4
+        if x + 3 >= self.width:
+            # first branch: if we are 3 or closer to the end then just return
+            # the last 4 items
             offset = x - (self.width - 4)
-            # get how far it is away from the end and then subtract the quad and then re-query
+            # get how far it is away from the end and then subtract the quad
+            # and then re-query
 
             return self.horiz(x - offset, y)
-        elif x + 3 <= self.width:  # second branch: if we are 3 or closer to the beginning
+        elif x + 3 <= self.width:
+            # second branch: if we are 3 or closer to the beginning
             return [
                 self.grid[y][x],
                 self.grid[y][x + 1],
