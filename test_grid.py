@@ -11,20 +11,36 @@ def grid():
 
     # have the fixture function close the resource for us for cleaner code
     with urllib.request.urlopen(url) as req:
-        yield parser.Grid(req)
+        yield parser.Grid(req)  # just return a parsed grid
+
+
+def test_grid_props(grid):
+    """test the computed properties on the grid"""
+    assert grid.height == 10
+    assert grid.width == 15
 
 
 def test_first_horizontal(grid):
-    """get the first quad sequence horizontally"""
+    """test the first horizontal quad sequence"""
     assert grid.horiz(0, 0) == [674, 20, 305, -921]
 
 
-def test_11th_horizontal(grid):
-    """should get the last 4 numbers of the first row in the grid"""
-    assert grid.horiz(11, 0) == [-123, -620, -88, 269]
+def test_overflow_horizontal(grid):
+    """test the overflow of the horizontal"""
+    last4 = [-123, -620, -88, 269]
+
+    assert grid.horiz(11, 0) == last4
+    assert grid.horiz(14, 0) == last4
 
 
-def test_14th_horizontal(grid):
-    """since 14th number is 3 away from the end we need to return all 4 numbers at the end"""
-    # should be  the same as the 11th x
-    assert grid.horiz(14, 0) == [-123, -620, -88, 269]
+def test_first_vertical(grid):
+    """test the first vertical quad sequence"""
+    assert grid.vert(0, 0) == [674, 650, 30, -140]
+
+
+def test_overflow_vertical(grid):
+    """test the overflow of the vertical"""
+    last4 = [823, -385, -540, 44]
+
+    assert grid.vert(0, 7 ) == last4
+    assert grid.vert(0, 10) == last4

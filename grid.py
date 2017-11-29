@@ -49,4 +49,19 @@ class Grid:
             # should never get here (save the kitties)
 
     def vert(self, x, y):
-        pass
+        # pretty much the same logic as the horiz function but with height
+
+        if y + 3 >= self.height:
+            offset = y - (self.height - 4)
+
+            return self.vert(x, y - offset)
+        elif y + 3 <= self.height:
+            return [
+                self.grid[y][x],
+                self.grid[y + 1][x],
+                self.grid[y + 2][x],
+                self.grid[y + 3][x],
+            ]
+        else:
+            print('the kittens strike back! they killed their killer')
+            # again, should never reach here
