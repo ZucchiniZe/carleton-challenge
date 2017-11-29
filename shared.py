@@ -1,4 +1,8 @@
+"""Shared code for all attempts"""
+
 class Grid:
+    """Parse and find all quad sequences in a grid of numbers given"""
+
     def __init__(self, grid):
         self._parse_grid(grid)  # parse the raw text and mutate into grid
 
@@ -19,18 +23,30 @@ class Grid:
         return return_val
 
     def _parse_grid(self, string):
-        """parse the text grid into a 2d array if integers"""
+        """
+        parse the text grid into a 2d array if integers
+
+        :param string: a string of the grid body
+        """
         self.grid = []
         for line in string:
             self.grid.append(self._parse_line(line))
 
-    def _parse_line(self, line):
+    @staticmethod
+    def _parse_line(line):
         """split on white space and then convert to integer"""
         items = line.split()
 
         return [int(i) for i in items]
 
     def horiz(self, x, y):
+        """
+        Get the horizontal quad sequence going right from the point given (with overflow)
+
+        :param x: the x value of where to start
+        :param y: the y value of where to start
+        :returns: array of 4 values that consist a quad sequence
+        """
         # since we are looking at the horizontal axis (x axis) we need to check
         # which way we want to search for a quad sequence to make sure we don't
         # get an out of bounds error
@@ -56,6 +72,13 @@ class Grid:
             # should never get here (save the kitties)
 
     def vert(self, x, y):
+        """
+        Gets the vertical quad sequence going down from the point given (with overflow)
+
+        :param x: the x value of where to start
+        :param y: the y value of where to start
+        :returns: array of 4 values that consist a quad sequence
+        """
         # pretty much the same logic as the horiz function but with height
 
         if y + 3 >= self.height:
