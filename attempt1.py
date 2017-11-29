@@ -1,10 +1,10 @@
 import sys
 import urllib.request
 
-import shared
+from shared import Grid
 
 with urllib.request.urlopen(sys.argv[1]) as req:
-    grid = shared.Grid(req)
+    grid = Grid(req)
     print(grid)
 
     # still working on the grid code currently

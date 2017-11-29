@@ -51,12 +51,6 @@ Grid is (fully) unit tested in [[file:test_grid.py]] with test file [[file:test_
    implementation:
    #+include: "./shared.py" src python -n
 
-   unit test:
-   #+include: "./test_grid.py" src python -n
-
-   test data:
-   #+include: "./test_grid.txt" src
-
 ** First attempt
 
    uses a brute force method
