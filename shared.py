@@ -7,7 +7,8 @@ class Grid:
 
     def __str__(self):
         """a nice pretty print of the grid"""
-        return_val = f"height: {self.height}\nwidth: {self.width}\n\n"
+        return_val = f"height: {self.height}\n"
+        return_val += f"width: {self.width}\n\n"
         for row in self.grid:
             for value in row:
                 return_val += f"{value}\t"
@@ -73,4 +74,11 @@ class Grid:
             # again, should never reach here
 
     def down_diag(self, x, y):
+        pass
+
+    def up_diag(self, x, y):
+        pass
+
+    def genarate_sequences(self):
+        """generator that returns all the quad sequences"""
         pass
