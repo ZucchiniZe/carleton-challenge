@@ -6,8 +6,12 @@ A solver for the Carleton placement exam
 * Usage
   As per the expected behavior in the document
 
+  (needs to be run with python 3.6 because of the use of [[https://www.python.org/dev/peps/pep-0498/][fstring]])
+
   #+begin_src shell :eval no
-  $ python3 solution.py <url>
+    $ python3 -V
+    # Python 3.6
+    $ python3 solution.py <url>
   #+end_src
 
 ** Options
@@ -17,7 +21,7 @@ A solver for the Carleton placement exam
 ** Examples
 
    #+begin_src shell :eval no
-  $ python3 solution.py http://cs.carleton.edu/faculty/dln/placement/grid.txt
+     $ python3 solution.py http://cs.carleton.edu/faculty/dln/placement/grid.txt
    #+end_src
 
 * Implementation notes

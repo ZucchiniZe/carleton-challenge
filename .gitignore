@@ -3,3 +3,7 @@ README.*
 
 # but we want to include the base org-mode file
 !README.org
+
+
+__pycache__
+.cache
