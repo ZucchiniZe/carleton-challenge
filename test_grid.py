@@ -23,6 +23,7 @@ def test_grid_props(grid):
 def test_first_horizontal(grid):
     """test the first horizontal quad sequence"""
     assert grid.horiz(0, 0) == [674, 20, 305, -921]
+    assert grid.horiz(3, 0) == [-921, 912, 779, 25]
 
 
 def test_overflow_horizontal(grid):
@@ -36,6 +37,7 @@ def test_overflow_horizontal(grid):
 def test_first_vertical(grid):
     """test the first vertical quad sequence"""
     assert grid.vert(0, 0) == [674, 650, 30, -140]
+    assert grid.vert(0, 3) == [-140, 753, -662, 823]
 
 
 def test_overflow_vertical(grid):

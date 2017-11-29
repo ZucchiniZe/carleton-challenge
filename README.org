@@ -48,7 +48,11 @@ Grid is (fully) unit tested in [[file:test_grid.py]].
 
 ** Shared Grid code
 
+   implementation:
    #+include: "./grid.py" src python -n
+
+   unit test:
+   #+include: "./test_grid.py" src python -n
 
 ** First attempt
 
