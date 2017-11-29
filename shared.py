@@ -35,15 +35,15 @@ class Grid:
         # get an out of bounds error
 
         if x + 3 >= self.width:
-            # first branch: if we are 3 or closer to the end then just return
-            # the last 4 items
+            # if we are 3 or closer to the end then just return the entire last
+            # quad sequence
             offset = x - (self.width - 4)
-            # get how far it is away from the end and then subtract the quad
-            # and then re-query
 
+            # get how far it is away from the end and then subtract the 4
+            # (length of a quad sequence) and then re-query
             return self.horiz(x - offset, y)
-        elif x + 3 <= self.width:
-            # second branch: if we are 3 or closer to the beginning
+        elif x <= self.width:
+            # make sure we are not accessing anything smaller
             return [
                 self.grid[y][x],
                 self.grid[y][x + 1],
@@ -61,7 +61,7 @@ class Grid:
             offset = y - (self.height - 4)
 
             return self.vert(x, y - offset)
-        elif y + 3 <= self.height:
+        elif y <= self.height:
             return [
                 self.grid[y][x],
                 self.grid[y + 1][x],
@@ -71,3 +71,6 @@ class Grid:
         else:
             print('the kittens strike back! they killed their killer')
             # again, should never reach here
+
+    def down_diag(self, x, y):
+        pass

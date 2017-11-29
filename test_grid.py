@@ -18,8 +18,8 @@ def test_grid_props(grid):
     assert grid.width == 15
 
 
-def test_first_horizontal(grid):
-    """test the first horizontal quad sequence"""
+def test_regular_horizontal(grid):
+    """test the regular horizontal quad sequence"""
     assert grid.horiz(0, 0) == [674, 20, 305, -921]
     assert grid.horiz(3, 0) == [-921, 912, 779, 25]
 
@@ -32,8 +32,8 @@ def test_overflow_horizontal(grid):
     assert grid.horiz(14, 0) == last4
 
 
-def test_first_vertical(grid):
-    """test the first vertical quad sequence"""
+def test_regular_vertical(grid):
+    """test the regular vertical quad sequence"""
     assert grid.vert(0, 0) == [674, 650, 30, -140]
     assert grid.vert(0, 3) == [-140, 753, -662, 823]
 
@@ -44,3 +44,10 @@ def test_overflow_vertical(grid):
 
     assert grid.vert(0, 7) == last4
     assert grid.vert(0, 10) == last4
+
+
+@pytest.mark.skip(reason="not implemented")
+def test_regular_down_diagonal(grid):
+    """test the regular downward diagonal quad sequence"""
+    assert grid.down_diag(0, 0) == [674, 640, 649, 230]
+    assert grid.down_diag(1, 0) == [20, 613, 959, -638]
