@@ -1,7 +1,7 @@
 import pytest
 
 import urllib.request
-import grid as parser
+import shared
 
 
 @pytest.fixture
@@ -11,7 +11,7 @@ def grid():
 
     # have the fixture function close the resource for us for cleaner code
     with urllib.request.urlopen(url) as req:
-        yield parser.Grid(req)  # just return a parsed grid
+        yield shared.Grid(req)  # just return a parsed grid
 
 
 def test_grid_props(grid):
