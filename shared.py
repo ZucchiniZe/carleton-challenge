@@ -1,6 +1,6 @@
 class Grid:
     def __init__(self, grid):
-        self._parse_grid(grid)  # parse the resp and mutate into grid
+        self._parse_grid(grid)  # parse the raw text and mutate into grid
 
         self.height = len(self.grid)  # height is the number of rows (y)
         self.width = len(self.grid[1])  # width is the number of columns (x)

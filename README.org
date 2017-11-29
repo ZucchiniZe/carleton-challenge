@@ -5,7 +5,7 @@ A solver for the [[http://cs.carleton.edu/faculty/dln/placement/problem.pdf][Car
 
 Code is separated into multiple files for readability.
 The shared code to find the quad sequences is put into the ~grid~ class in [[file:shared.py]].
-Grid is (fully) unit tested in [[file:test_grid.py]].
+Grid is (fully) unit tested in [[file:test_grid.py]] with test file [[file:test_grid.txt]].
 
 * Usage
   As per the expected behavior in the document

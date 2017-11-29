@@ -1,17 +1,15 @@
 import pytest
 
-import urllib.request
-import shared
+from shared import Grid
 
 
 @pytest.fixture
 def grid():
     """returns a the text contents of the sample grid"""
-    url = 'http://cs.carleton.edu/faculty/dln/placement/grid.txt'
-
-    # have the fixture function close the resource for us for cleaner code
-    with urllib.request.urlopen(url) as req:
-        yield shared.Grid(req)  # just return a parsed grid
+    # have the fixture function close the resource for us to result in cleaner
+    # code
+    with open('test_grid.txt', 'r') as body:
+        yield Grid(body)  # just return a parsed grid
 
 
 def test_grid_props(grid):
