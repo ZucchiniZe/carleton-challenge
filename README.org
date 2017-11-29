@@ -1,7 +1,11 @@
 #+AUTHOR: Alex Bierwagen
 #+TITLE: Carleton Placement Exam solution
 
-A solver for the Carleton placement exam
+A solver for the [[http://cs.carleton.edu/faculty/dln/placement/problem.pdf][Carleton placement exam]].
+
+Code is separated into multiple files for readability.
+The shared code to find the quad sequences is put into the ~grid~ class in [[file:grid.py]].
+Grid is (fully) unit tested in [[file:test_grid.py]].
 
 * Usage
   As per the expected behavior in the document
@@ -40,7 +44,11 @@ A solver for the Carleton placement exam
      of the numbers to calculate the product
   7. find largest product and then print it out
 
-* Attempts
+* Code
+
+** Shared Grid code
+
+   #+include: "./grid.py" src python -n
 
 ** First attempt
 

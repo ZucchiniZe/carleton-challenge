@@ -1,16 +1,10 @@
 import sys
 import urllib.request
 
-import grid
+import grid as gridlib
 
-def run(url):
-    return urllib.request.urlopen(url)
+with urllib.request.urlopen(sys.argv[1]) as req:
+    grid = gridlib.Grid(req)
+    print(grid)
 
-# with auto closes the resource
-with run(sys.argv[1]) as req:
-    current = grid.Grid(req)
-
-    print(current)
-
-
-    ### actual code for solving begins here
+    # still working on the grid code currently
