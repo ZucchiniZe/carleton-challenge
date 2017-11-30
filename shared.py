@@ -65,7 +65,7 @@ class Grid:
         elif x <= self.width:
             # make sure we are not accessing anything smaller
             return [
-                self.grid[y][x],
+                self.grid[y][x + 0],
                 self.grid[y][x + 1],
                 self.grid[y][x + 2],
                 self.grid[y][x + 3],
@@ -90,7 +90,7 @@ class Grid:
             return self.vert(x, y - offset)
         elif y <= self.height:
             return [
-                self.grid[y][x],
+                self.grid[y + 0][x],
                 self.grid[y + 1][x],
                 self.grid[y + 2][x],
                 self.grid[y + 3][x],
@@ -119,17 +119,43 @@ class Grid:
         elif y <= self.height and x <= self.width:
             # we want both x and y to be in bounds
             return [
-                self.grid[y][x],
+                self.grid[y + 0][x + 0],
                 self.grid[y + 1][x + 1],
                 self.grid[y + 2][x + 2],
                 self.grid[y + 3][x + 3],
             ]
         else:
-            print('the kittens are staging a rebellion, we must stop them!')
-            # if code == bork: kittens.rebel()
+            print('shit, the mommy cat is out to get us. RUN!!')
+            # o shit boi
 
     def up_diag(self, x, y):
-        pass
+        """
+        Gets the upward diagonal quad sequence from the point given (with x and y overflow)
+
+        :param x: the x value of where to start
+        :param y: the y value of where to start
+        :returns: array of 4 values that consist a quad sequence
+        """
+
+        if y + 3 >= self.height:
+            offset = y - (self.height - 4)
+
+            return self.down_diag(x, y - offset)
+        elif x + 3 >= self.width:
+            offset = x - (self.width - 4)
+
+            return self.down_diag(x - offset, y)
+        elif y <= self.height and x <= self.width:
+            # we want both x and y to be in bounds
+            return [
+                self.grid[y - 0][x + 0],
+                self.grid[y - 1][x + 1],
+                self.grid[y - 2][x + 2],
+                self.grid[y - 3][x + 3],
+            ]
+        else:
+            print('the kittens are staging a rebellion, we must stop them!')
+            # if code == bork: kittens.rebel()
 
     def genarate_sequences(self):
         """generator that returns all the quad sequences"""

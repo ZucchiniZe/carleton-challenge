@@ -73,3 +73,14 @@ def test_overflow_down_diagonal(grid):
     assert grid.down_diag(13, 0) == last_upper4
 
     assert grid.down_diag(11, 0) == grid.down_diag(13, 0)
+
+
+def test_regular_up_diagonal(grid):
+    """test the regular upwards diagonal quad sequence"""
+    assert grid.up_diag(0, 3) == [-140, 888, 613, -921]
+    assert grid.up_diag(0, 4) == [753, 362, 649, 575]
+
+
+def test_overflow_up_diagonal(grid):
+    """test the overflow of the upward diagonal quad sequence"""
+    assert grid.up_diag(0, 1) == [-140, 888, 613, -921]
