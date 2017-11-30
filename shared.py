@@ -1,7 +1,10 @@
 """Shared code for all attempts"""
 
+
 class Grid:
-    """Parse and find all quad sequences in a grid of numbers given"""
+    """
+    Parse and find all quad sequences in a grid of numbers given
+    """
 
     def __init__(self, grid):
         self._parse_grid(grid)  # parse the raw text and mutate into grid
@@ -97,7 +100,33 @@ class Grid:
             # again, should never reach here
 
     def down_diag(self, x, y):
-        pass
+        """
+        Gets the downward diagonal quad sequence from the point given (with x and y overflow)
+
+        :param x: the x value of where to start
+        :param y: the y value of where to start
+        :returns: array of 4 values that consist a quad sequence
+        """
+
+        if y + 3 >= self.height:
+            offset = y - (self.height - 4)
+
+            return self.down_diag(x, y - offset)
+        elif x + 3 >= self.width:
+            offset = x - (self.width - 4)
+
+            return self.down_diag(x - offset, y)
+        elif y <= self.height and x <= self.width:
+            # we want both x and y to be in bounds
+            return [
+                self.grid[y][x],
+                self.grid[y + 1][x + 1],
+                self.grid[y + 2][x + 2],
+                self.grid[y + 3][x + 3],
+            ]
+        else:
+            print('the kittens are staging a rebellion, we must stop them!')
+            # if code == bork: kittens.rebel()
 
     def up_diag(self, x, y):
         pass
